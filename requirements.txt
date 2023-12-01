@@ -1,6 +1,0 @@
-requests
-python-dotenv
-flask
-apache-airflow
-apache-airflow-providers-postgres
-pydantic
