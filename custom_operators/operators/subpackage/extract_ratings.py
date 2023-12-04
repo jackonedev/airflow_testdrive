@@ -1,16 +1,10 @@
-import os
 import requests
-from dotenv import load_dotenv
+import sys, os
 
-load_dotenv()
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", ".."))
 
-
-MOVIELENS_HOST = os.environ.get("MOVIELENS_HOST", "movielens")
-MOVIELENS_SCHEMA = os.environ.get("MOVIELENS_SCHEMA", "http")
-MOVIELENS_PORT = os.environ.get("MOVIELENS_PORT", "5000")
-
-MOVIELENS_USER = os.environ["MOVIELENS_USER"]
-MOVIELENS_PASSWORD = os.environ["MOVIELENS_PASSWORD"]
+from utils.config import MOVIELENS_USER, MOVIELENS_PASSWORD
+from utils.config import MOVIELENS_HOST, MOVIELENS_SCHEMA, MOVIELENS_PORT
 
 
 def _get_session() -> tuple:
@@ -62,4 +56,4 @@ if __name__ == "__main__":
     # implementing a generator
     ratings = _get_ratings(session, base_url + "/ratings")
     # next(ratings) # this will return the first 100 ratings
-    list(ratings) # fetch the entire batch
+    print(list(ratings)) # fetch the entire batch

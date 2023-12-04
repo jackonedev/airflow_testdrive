@@ -1,10 +1,10 @@
-from airflow.models import BaseOperator, PythonOperator
+from airflow.operators.python import PythonOperator
 import logging, json
 
 import sys, os
-sys.path.append(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
-from custom_operators.operators.subpackage.extract_ratings import _get_ratings
+from operators.subpackage.extract_ratings import _get_ratings
 
 def _fetch_ratings(templates_dict, batch_size=1000, **_):
     "Extract via HTTP request and save to JSON file. | With logging"

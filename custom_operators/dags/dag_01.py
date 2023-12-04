@@ -1,4 +1,4 @@
-from airflow.models import DAG
+from airflow import DAG
 from airflow.utils.dates import datetime
 import pandas as pd
 

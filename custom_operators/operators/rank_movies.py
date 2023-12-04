@@ -1,10 +1,10 @@
-from airflow.models import BaseOperator, PythonOperator
+from airflow.operators.python import PythonOperator
 import pandas as pd
 
 import sys, os
-sys.path.append(os.path.join(os.path.dirname(__file__), "..", ".."))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
-from custom_operators.operators.subpackage.rank_movies import rank_movies_by_rating
+from operators.subpackage.rank_movies import rank_movies_by_rating
 
 def _rank_movies(templates_dict, min_ratings=2, **_):
     input_path = templates_dict["input_path"]
