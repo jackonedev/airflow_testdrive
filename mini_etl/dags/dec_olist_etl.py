@@ -30,7 +30,7 @@ nlog = count(1)
     dag_id="olist_etl_decorator",
     default_args={"owner":"airflow"},
     start_date=airflow.utils.dates.days_ago(14),
-    schedule_interval=None
+    schedule=None
     )
 def olist_etl():
     

@@ -31,7 +31,7 @@ with DAG(
     dag_id="olist_etl",
     default_args={"owner":"airflow"},
     start_date=airflow.utils.dates.days_ago(14),
-    schedule_interval=None,
+    schedule=None,
     catchup=False,
     tags=["mini_etl"]
     ) as dag:
